@@ -1,8 +1,11 @@
-describe('Página de Login', () => {
-    it('Fazendo o login corretamente', () => {
-      cy.visit('http://localhost:4200/#/home')
-      cy.get('[data-test="loginUserName"]').type('test');
-      cy.get('[data-test="loginPassword"]').type('123456789');
-      cy.contains('button', 'login').click();
-    })
+describe('Página de login', () => {
+
+  beforeEach(() => {
+      cy.visit('http://localhost:4200')
   })
+
+      it('Deve preencher os campos do formulário corretamente e realizar login', () => {
+          cy.login('test', '123456789')
+          })
+
+})
